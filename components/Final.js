@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Button from "react-native-button";
 
 import { HomeScreen } from "../screens";
@@ -7,9 +7,15 @@ import { HomeScreen } from "../screens";
 export default class Final extends React.Component {
   render() {
     const { navigation } = this.props;
+    const paramsFromHomeScreen = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Final Screen</Text>
+        <Text style={styles.text}>Name: {paramsFromHomeScreen.name}</Text>
+        <Image
+          source={{ uri: paramsFromHomeScreen.avatar }}
+          style={{ width: 400, height: 400 }}
+        />
         <Button
           containerStyle={{
             padding: 10,

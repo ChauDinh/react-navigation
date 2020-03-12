@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Button from "react-native-button";
 
 import { HomeScreen } from "../screens";
@@ -7,9 +7,16 @@ import { HomeScreen } from "../screens";
 export default class Detail extends React.Component {
   render() {
     const { navigation } = this.props;
+    let paramsFromHomeScreen = this.props.navigation.state.params;
+    console.log(paramsFromHomeScreen.avatar);
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Detail Screen</Text>
+        <Text style={styles.text}>Name: {paramsFromHomeScreen.name}</Text>
+        <Image
+          source={{ uri: paramsFromHomeScreen.avatar }}
+          style={{ width: 400, height: 400 }}
+        />
         <Button
           containerStyle={{
             padding: 10,
