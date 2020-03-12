@@ -9,22 +9,13 @@ import { HomeScreen, DetailScreen, FinalScreen } from "./screens";
 
 const App = StackNavigator({
   HomeScreen: {
-    screen: Home,
-    navigationOptions: {
-      headerTitle: "Home"
-    }
+    screen: Home
   },
   DetailScreen: {
-    screen: Detail,
-    navigationOptions: {
-      headerTitle: "Detail"
-    }
+    screen: Detail
   },
   FinalScreen: {
-    screen: Final,
-    navigationOptions: {
-      headerTitle: "Final"
-    }
+    screen: Final
   }
 });
 AppRegistry.registerComponent("myapprn", () => App);

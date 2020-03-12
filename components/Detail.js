@@ -5,13 +5,16 @@ import Button from "react-native-button";
 import { HomeScreen } from "../screens";
 
 export default class Detail extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    let headerTitle = "Detail";
+    return { headerTitle };
+  };
   render() {
     const { navigation } = this.props;
     let paramsFromHomeScreen = this.props.navigation.state.params;
     console.log(paramsFromHomeScreen.avatar);
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Detail Screen</Text>
         <Text style={styles.text}>Name: {paramsFromHomeScreen.name}</Text>
         <Image
           source={{ uri: paramsFromHomeScreen.avatar }}

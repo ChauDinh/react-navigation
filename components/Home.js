@@ -1,10 +1,47 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, ActivityIndicator } from "react-native";
 import Button from "react-native-button";
 
 import { DetailScreen, FinalScreen } from "../screens";
 
 export default class Home extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params = {} } = navigation.state;
+    let headerTitle = "Home";
+    let headerBackTitle = "Back";
+    let headerRight = (
+      <Button
+        containerStyle={{
+          margin: 5,
+          padding: 5,
+          borderRadius: 4,
+          backgroundColor: "darkviolet"
+        }}
+        style={{ fontSize: 15, color: "white" }}
+        onPress={() => {
+          params.onSave();
+        }}
+      >
+        Friends
+      </Button>
+    );
+    return { headerTitle, headerRight, headerBackTitle };
+  };
+  _onSave() {
+    this.props.navigation.setParams({ isSaving: true });
+    // Do some tasks
+    let intervalId = setInterval(() => {
+      console.log("I've finished some tasks in 3 seconds");
+      this.props.navigation.setParams({ isSaving: false });
+      clearInterval(intervalId);
+    }, 3000);
+  }
+  componentDidMount() {
+    this.props.navigation.setParams({
+      onSave: this._onSave.bind(this),
+      isSaving: false
+    });
+  }
   render() {
     const { navigation } = this.props;
 
@@ -24,43 +61,48 @@ export default class Home extends React.Component {
         "https://instagram.fsgn2-3.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/78818087_503115820584646_4431330612608307786_n.jpg?_nc_ht=instagram.fsgn2-3.fna.fbcdn.net&_nc_cat=110&_nc_ohc=02cVRFNHZx0AX9fnziz&oh=4784be6ea86621d1c65ddae2c8659dbf&oe=5EA49A1B"
     };
 
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Home Screen</Text>
-        <Button
-          containerStyle={{
-            padding: 10,
-            margin: 20,
-            width: 200,
-            height: 45,
-            borderRadius: 10,
-            backgroundColor: "darkviolet"
-          }}
-          style={styles.button}
-          onPress={() =>
-            navigation.navigate(DetailScreen, mockDataSendToDetailScreen)
-          }
-        >
-          Go to Detail
-        </Button>
-        <Button
-          containerStyle={{
-            padding: 10,
-            margin: 20,
-            width: 200,
-            height: 45,
-            borderRadius: 10,
-            backgroundColor: "darkviolet"
-          }}
-          style={styles.button}
-          onPress={() =>
-            navigation.navigate(FinalScreen, mockDataSendToFinalScreen)
-          }
-        >
-          Go to Final
-        </Button>
-      </View>
-    );
+    // Create a view that have indicator
+    const mainView =
+      navigation.state.params && navigation.state.params.isSaving === true ? (
+        <ActivityIndicator />
+      ) : (
+        <View style={styles.container}>
+          <Button
+            containerStyle={{
+              padding: 10,
+              margin: 20,
+              width: 200,
+              height: 45,
+              borderRadius: 10,
+              backgroundColor: "darkviolet"
+            }}
+            style={styles.button}
+            onPress={() =>
+              navigation.navigate(DetailScreen, mockDataSendToDetailScreen)
+            }
+          >
+            Go to Detail
+          </Button>
+          <Button
+            containerStyle={{
+              padding: 10,
+              margin: 20,
+              width: 200,
+              height: 45,
+              borderRadius: 10,
+              backgroundColor: "darkviolet"
+            }}
+            style={styles.button}
+            onPress={() =>
+              navigation.navigate(FinalScreen, mockDataSendToFinalScreen)
+            }
+          >
+            Go to Final
+          </Button>
+        </View>
+      );
+
+    return mainView;
   }
 }
 
