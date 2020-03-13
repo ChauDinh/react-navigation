@@ -13,16 +13,19 @@ export default class Home extends React.Component {
       <Button
         containerStyle={{
           margin: 5,
-          padding: 5,
-          borderRadius: 4,
-          backgroundColor: "darkviolet"
+          paddingTop: 5,
+          paddingBottom: 5,
+          paddingLeft: 10,
+          paddingRight: 10,
+          borderRadius: 5,
+          backgroundColor: "#147efb"
         }}
         style={{ fontSize: 15, color: "white" }}
         onPress={() => {
           params.onSave();
         }}
       >
-        Friends
+        Girls
       </Button>
     );
     return { headerTitle, headerRight, headerBackTitle };
@@ -58,7 +61,7 @@ export default class Home extends React.Component {
     const mockDataSendToFinalScreen = {
       name: "Võ Lê Yến Trân",
       avatar:
-        "https://instagram.fsgn2-3.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/78818087_503115820584646_4431330612608307786_n.jpg?_nc_ht=instagram.fsgn2-3.fna.fbcdn.net&_nc_cat=110&_nc_ohc=02cVRFNHZx0AX9fnziz&oh=4784be6ea86621d1c65ddae2c8659dbf&oe=5EA49A1B"
+        "https://instagram.fsgn2-4.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/70961773_487753308731877_6998093249824137026_n.jpg?_nc_ht=instagram.fsgn2-4.fna.fbcdn.net&_nc_cat=109&_nc_ohc=t9Jzce_ERsoAX8F4PhZ&oh=45cff48dbd44d60648171cf6da4ecf59&oe=5EA4C6F1"
     };
 
     // Create a view that have indicator
@@ -69,12 +72,11 @@ export default class Home extends React.Component {
         <View style={styles.container}>
           <Button
             containerStyle={{
-              padding: 10,
+              padding: 15,
               margin: 20,
               width: 200,
-              height: 45,
-              borderRadius: 10,
-              backgroundColor: "darkviolet"
+              borderRadius: 50,
+              backgroundColor: "#147efb"
             }}
             style={styles.button}
             onPress={() =>
@@ -85,12 +87,11 @@ export default class Home extends React.Component {
           </Button>
           <Button
             containerStyle={{
-              padding: 10,
+              padding: 15,
               margin: 20,
               width: 200,
-              height: 45,
-              borderRadius: 10,
-              backgroundColor: "darkviolet"
+              borderRadius: 50,
+              backgroundColor: "#147efb"
             }}
             style={styles.button}
             onPress={() =>
@@ -109,8 +110,8 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
     alignItems: "center",
+    backgroundColor: "#f5f5f5",
     justifyContent: "center"
   },
   text: {
@@ -120,6 +121,7 @@ const styles = StyleSheet.create({
   },
   button: {
     fontSize: 18,
-    color: "white"
+    backgroundColor: "#147efb",
+    color: "#fff"
   }
 });
