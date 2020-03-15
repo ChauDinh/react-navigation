@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry, Image } from "react-native";
+import { AppRegistry, Image, TouchableOpacity } from "react-native";
 import { StackNavigator, TabNavigator } from "react-navigation";
 
 import Home from "./components/Home/Home";
@@ -144,12 +144,13 @@ const App = TabNavigator(
         borderTopWidth: 0,
         shadowColor: "rgb(200, 200, 200)",
         shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.2
+        shadowOpacity: 0.2,
+        paddingBottom: 10
       }
-    }
+    },
     // Tab navigator animation
-    // animationEnabled: true
-    // swipeEnalbled: true
+    // animationEnabled: true,
+    swipeEnalbled: true
   }
 );
 AppRegistry.registerComponent("myapprn", () => App);

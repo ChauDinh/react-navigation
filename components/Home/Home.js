@@ -1,19 +1,21 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Button from "react-native-button";
+import Swiper from "react-native-swiper";
 
 import { ExploreScreen } from "../../screens";
+import SwipeComponent from "./SwipeComponent";
 
 export default class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerTitle = (
-      <Image source={require("../../icons/title.png")} style={styles.title} />
+      <Image source={require("../../icons/title.png")} style={styles.logo} />
     );
     let headerStyle = {
       backgroundColor: "#fff",
       borderBottomWidth: 0,
       shadowColor: "rgb(200, 200, 200)",
-      shadowOffset: { width: 0, height: 3 },
+      shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.2
     };
     let headerRight = (
@@ -47,38 +49,95 @@ export default class Home extends React.Component {
     let { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
-        {/* <Text>Hello from Home!</Text>
-        <Button
-          onPress={() => {
-            navigation.navigate(ExploreScreen);
-          }}
-        >
-          Explore
-        </Button> */}
-        <Image
-          source={{
-            uri:
-              "https://instagram.fpnh18-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/70961773_487753308731877_6998093249824137026_n.jpg?_nc_ht=instagram.fpnh18-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=t9Jzce_ERsoAX_pNN3h&oh=49807da2a9da56925875d0693ed8d09c&oe=5EA4C6F1"
-          }}
-          style={styles.image}
-        />
-      </View>
+      <Swiper>
+        <View style={styles.container}>
+          <SwipeComponent
+            slogan="A Journey..."
+            swipeImageUrl={require("../../images/swipe-image-01.png")}
+          />
+          <TouchableOpacity
+            style={{
+              padding: 10,
+              marginTop: 10,
+              width: 200,
+              height: 45,
+              borderRadius: 50,
+              backgroundColor: "#000"
+            }}
+            onPress={() => {
+              navigation.navigate(ExploreScreen);
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
+              Explore
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <SwipeComponent
+            slogan="Feelings..."
+            swipeImageUrl={require("../../images/swipe-image-02.png")}
+          />
+          <TouchableOpacity
+            style={{
+              padding: 10,
+              marginTop: 10,
+              width: 200,
+              height: 45,
+              borderRadius: 50,
+              backgroundColor: "#000"
+            }}
+            onPress={() => {
+              navigation.navigate(ExploreScreen);
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
+              Explore
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <SwipeComponent
+            slogan="Together..."
+            swipeImageUrl={require("../../images/swipe-image-03.png")}
+          />
+          <TouchableOpacity
+            style={{
+              padding: 10,
+              marginTop: 10,
+              width: 200,
+              height: 45,
+              borderRadius: 50,
+              backgroundColor: "#000"
+            }}
+            onPress={() => {
+              navigation.navigate(ExploreScreen);
+            }}
+          >
+            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
+              Explore
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </Swiper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  title: {
-    height: 36,
-    width: 107
+  logo: {
+    height: 40,
+    width: 110
   },
   container: {
     backgroundColor: "#fff",
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    padding: 20
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: "600"
   },
   image: {
     width: "100%",

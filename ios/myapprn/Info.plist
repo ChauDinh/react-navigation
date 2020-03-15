@@ -51,9 +51,9 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>UIAppFonts</key>
+	<!-- <key>UIAppFonts</key>
 	<array>
 		<string>FredokaOne-Regular.ttf</string>
-	</array>
+	</array> -->
 </dict>
 </plist>
