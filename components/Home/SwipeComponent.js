@@ -21,7 +21,7 @@ export default class SwipeComponent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 450,
+    height: 350,
     marginTop: 40
   },
   text: {
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
   sub: {
     fontSize: 18,
     fontWeight: "300",
-    color: "#696969",
+    color: "#555",
     marginLeft: 30,
     marginRight: 30,
-    marginBottom: 10
+    marginBottom: 16
   },
   image: {
     width: "100%",
-    height: 350
+    height: 250
   }
 });

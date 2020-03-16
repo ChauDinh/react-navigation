@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 360,
+    // height: 200,
     borderRadius: 10,
     shadowColor: "rgb(200, 200, 200)",
     shadowOffset: { width: 0, height: 5 },
