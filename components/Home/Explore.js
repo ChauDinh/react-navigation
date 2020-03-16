@@ -7,6 +7,7 @@ import {
   View,
   TouchableOpacity
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import { ProfileScreen } from "../../screens";
 import { exploreFlatlistData } from "../../data/exploreFlatlistData";
@@ -39,40 +40,40 @@ class FlatlistItem extends React.Component {
           source={{ uri: this.props.item.avatar }}
           style={{
             width: "100%",
-            height: 180
+            height: 220
           }}
         />
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingLeft: 10,
-            paddingRight: 10
+            width: "100%",
+            flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "center",
+            position: "absolute",
+            backgroundColor: "transparent",
+            bottom: 0
           }}
         >
-          <TouchableOpacity>
-            <Image
-              source={require("../../icons/matches.png")}
-              style={{ width: 20, height: 20, marginTop: 10 }}
-            />
-          </TouchableOpacity>
-          <Text
-            style={{
-              marginTop: 10,
-              fontSize: 16,
-              fontWeight: "700",
-              textAlign: "center"
-            }}
+          <LinearGradient
+            colors={[
+              "rgba(200, 200, 200, 0)",
+              "rgba(200,200,200,0.2609418767507002)",
+              "rgba(0, 0, 0, 0.6)"
+            ]}
+            style={styles.linearGradient}
           >
-            {this.props.item.name}
-          </Text>
-          <TouchableOpacity onPress={this.props.onPress}>
-            <Image
-              source={require("../../icons/info.png")}
-              style={{ width: 20, height: 20, marginTop: 10 }}
-            />
-          </TouchableOpacity>
+            <Text
+              style={{
+                marginTop: 10,
+                fontSize: 16,
+                fontWeight: "700",
+                textAlign: "left",
+                color: "#fff"
+              }}
+            >
+              <Text style={{ color: "#00e500" }}>●</Text> {this.props.item.name}
+            </Text>
+          </LinearGradient>
         </View>
       </TouchableOpacity>
     );
@@ -144,5 +145,10 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 50,
     color: "#0C1B3D"
+  },
+  linearGradient: {
+    flex: 1,
+    width: "100%",
+    padding: 5
   }
 });
