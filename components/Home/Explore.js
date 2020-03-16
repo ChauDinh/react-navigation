@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import Button from "react-native-button";
 
-import { GirlScreen } from "../../screens";
+import { ProfileScreen } from "../../screens";
 
 export default class Explore extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -11,15 +11,30 @@ export default class Explore extends React.Component {
     };
     let headerTintColor = "#000";
     let headerBackTitle = "Back";
+    let headerTitle = "Explore";
+    let headerRight = (
+      <Image
+        source={require("../../icons/search.png")}
+        style={{ width: 26, height: 26, margin: 20 }}
+      />
+    );
 
-    return { headerStyle, headerTintColor, headerBackTitle };
+    return {
+      headerStyle,
+      headerTintColor,
+      headerBackTitle,
+      headerTitle,
+      headerRight
+    };
   };
   render() {
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text>Hello from Explore!</Text>
-        <Button onPress={() => navigation.navigate(GirlScreen)}>Profile</Button>
+        <Button onPress={() => navigation.navigate(ProfileScreen)}>
+          Profile
+        </Button>
       </View>
     );
   }

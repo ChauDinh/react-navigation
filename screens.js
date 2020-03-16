@@ -6,14 +6,14 @@ const MeScreen = "MeScreen";
 
 // Stack screens
 const ExploreScreen = "ExploreScreen";
-const GirlScreen = "GirlScreen";
+const ProfileScreen = "ProfileScreen";
 const AccountScreen = "AccountScreen";
 
 export {
   HomeScreen,
   ExploreScreen,
   MatchesScreen,
-  GirlScreen,
+  ProfileScreen,
   ChatScreen,
   MeScreen,
   AccountScreen

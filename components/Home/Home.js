@@ -1,10 +1,10 @@
 import React from "react";
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import Button from "react-native-button";
 import Swiper from "react-native-swiper";
 
 import { ExploreScreen } from "../../screens";
 import SwipeComponent from "./SwipeComponent";
+import Button from "../Button";
 
 export default class Home extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -55,69 +55,21 @@ export default class Home extends React.Component {
             slogan="A Journey..."
             swipeImageUrl={require("../../images/swipe-image-01.png")}
           />
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              marginTop: 10,
-              width: 200,
-              height: 45,
-              borderRadius: 50,
-              backgroundColor: "#000"
-            }}
-            onPress={() => {
-              navigation.navigate(ExploreScreen);
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
-              Explore
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={() => navigation.navigate(ExploreScreen)} />
         </View>
         <View style={styles.container}>
           <SwipeComponent
             slogan="Feelings..."
             swipeImageUrl={require("../../images/swipe-image-02.png")}
           />
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              marginTop: 10,
-              width: 200,
-              height: 45,
-              borderRadius: 50,
-              backgroundColor: "#000"
-            }}
-            onPress={() => {
-              navigation.navigate(ExploreScreen);
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
-              Explore
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={() => navigation.navigate(ExploreScreen)} />
         </View>
         <View style={styles.container}>
           <SwipeComponent
             slogan="Together..."
             swipeImageUrl={require("../../images/swipe-image-03.png")}
           />
-          <TouchableOpacity
-            style={{
-              padding: 10,
-              marginTop: 10,
-              width: 200,
-              height: 45,
-              borderRadius: 50,
-              backgroundColor: "#000"
-            }}
-            onPress={() => {
-              navigation.navigate(ExploreScreen);
-            }}
-          >
-            <Text style={{ color: "#fff", fontSize: 20, textAlign: "center" }}>
-              Explore
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={() => navigation.navigate(ExploreScreen)} />
         </View>
       </Swiper>
     );

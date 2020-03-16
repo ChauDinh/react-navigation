@@ -7,12 +7,12 @@ import Matches from "./components/Matches/Matches";
 import Chat from "./components/Chat/Chat";
 import Me from "./components/Me/Me";
 import Explore from "./components/Home/Explore";
-import Girl from "./components/Girl";
+import Profile from "./components/Profile/Profile";
 import {
   HomeScreen,
   ExploreScreen,
   MatchesScreen,
-  GirlScreen,
+  ProfileScreen,
   ChatScreen,
   MeScreen,
   AccountScreen
@@ -25,8 +25,8 @@ export const HomeStack = StackNavigator({
   ExploreScreen: {
     screen: Explore
   },
-  GirlScreen: {
-    screen: Girl
+  ProfileScreen: {
+    screen: Profile
   }
 });
 
@@ -34,8 +34,8 @@ export const MatchesStack = StackNavigator({
   MatchesScreen: {
     screen: Matches
   },
-  Girl: {
-    screen: Girl
+  ProfileScreen: {
+    screen: Profile
   }
 });
 
