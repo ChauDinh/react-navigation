@@ -11,66 +11,10 @@ import {
 } from "react-native";
 
 import { ProfileScreen } from "../../screens";
+import { mockDataForMatches } from "../../data/matchesFlatlistData";
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
-
-const mockDataForMatches = [
-  {
-    id: "1",
-    uri: require("../../images/yentran/yentran-avatar.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "2",
-    uri: require("../../images/thaodung/thaodung-avatar.jpg"),
-    name: "Thảo Dung",
-    year: 2000
-  },
-  {
-    id: "3",
-    uri: require("../../images/thaodung/thaodung-02.jpg"),
-    name: "Thảo Dung",
-    year: 2000
-  },
-  {
-    id: "4",
-    uri: require("../../images/yentran/yentran-03.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "5",
-    uri: require("../../images/yentran/yentran-04.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "6",
-    uri: require("../../images/yentran/yentran-05.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "7",
-    uri: require("../../images/yentran/yentran-06.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "8",
-    uri: require("../../images/yentran/yentran-07.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  },
-  {
-    id: "9",
-    uri: require("../../images/yentran/yentran-08.jpg"),
-    name: "Yến Trân",
-    year: 2001
-  }
-];
 
 export default class Matches extends React.Component {
   constructor(props) {
@@ -214,24 +158,52 @@ export default class Matches extends React.Component {
                   position: "absolute",
                   bottom: 5,
                   left: 5,
+                  right: 5,
                   flex: 1,
-                  justifyContent: "center",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                   alignItems: "flex-start",
                   width: "100%",
                   backgroundColor: "transparent"
                 }}
               >
-                <Text
-                  style={{
-                    fontSize: 36,
-                    fontWeight: "900",
-                    paddingTop: 10,
-                    color: "#fff"
-                  }}
-                >
-                  {item.name}, {2020 - item.year}
-                </Text>
-                <Text style={{ color: "#fff" }}>Ho Chi Minh City, Vietnam</Text>
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 36,
+                      fontWeight: "900",
+                      paddingTop: 10,
+                      color: "#fff"
+                    }}
+                  >
+                    {item.name}, {2020 - item.year}
+                  </Text>
+                  <Text style={{ color: "#fff" }}>
+                    Ho Chi Minh City, Vietnam
+                  </Text>
+                </View>
+                <TouchableOpacity>
+                  <Text
+                    onPress={() =>
+                      this.props.navigation.navigate(ProfileScreen, {
+                        name: item.name,
+                        age: 2020 - item.year,
+                        avatar: item.uri
+                      })
+                    }
+                    style={{
+                      padding: 10,
+                      backgroundColor: "#eeb5ff",
+                      color: "#333",
+                      fontSize: 16,
+                      fontWeight: "600",
+                      marginTop: 10,
+                      marginRight: 5
+                    }}
+                  >
+                    Profile
+                  </Text>
+                </TouchableOpacity>
               </Animated.View>
             </Animated.View>
           );
