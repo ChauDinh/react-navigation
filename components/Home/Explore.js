@@ -37,7 +37,7 @@ class FlatlistItem extends React.Component {
         onPress={this.props.onPress}
       >
         <Image
-          source={{ uri: this.props.item.avatar }}
+          source={this.props.item.avatar}
           style={{
             width: "100%",
             height: 220
@@ -120,7 +120,14 @@ export default class Explore extends React.Component {
               <FlatlistItem
                 item={item}
                 index={index}
-                onPress={() => navigation.navigate(ProfileScreen)}
+                onPress={() =>
+                  navigation.navigate(ProfileScreen, {
+                    name: item.name,
+                    age: item.date,
+                    avatar: item.avatar,
+                    images: item.images
+                  })
+                }
               />
             );
           }}
