@@ -52,21 +52,24 @@ export default class Home extends React.Component {
       <Swiper>
         <View style={styles.container}>
           <SwipeComponent
-            slogan="A Journey..."
+            slogan="Share your interest"
+            description="Like going for a movie or riding bike. Tell us all about your hobbies and what interests you."
             swipeImageUrl={require("../../images/swipe-image-01.png")}
           />
           <Button onPress={() => navigation.navigate(ExploreScreen)} />
         </View>
         <View style={styles.container}>
           <SwipeComponent
-            slogan="Feelings..."
+            slogan="Get a match"
+            description="Our advanced AI cross matches your common interests and other factors to find your perfect match."
             swipeImageUrl={require("../../images/swipe-image-02.png")}
           />
           <Button onPress={() => navigation.navigate(ExploreScreen)} />
         </View>
         <View style={styles.container}>
           <SwipeComponent
-            slogan="Together..."
+            slogan="Plan together"
+            description="Go for a movie together, a walk in a park or anything that interests you both."
             swipeImageUrl={require("../../images/swipe-image-03.png")}
           />
           <Button onPress={() => navigation.navigate(ExploreScreen)} />

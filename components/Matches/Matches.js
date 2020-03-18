@@ -182,7 +182,21 @@ export default class Matches extends React.Component {
                     Ho Chi Minh City, Vietnam
                   </Text>
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 50,
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginRight: 10,
+                    marginTop: 10,
+                    shadowColor: "rgb(200, 200, 200)",
+                    shadowOffset: { width: 2, height: 2 },
+                    shadowOpacity: 0.5,
+                    backgroundColor: "#fff"
+                  }}
+                >
                   <Text
                     onPress={() =>
                       this.props.navigation.navigate(ProfileScreen, {
@@ -193,12 +207,9 @@ export default class Matches extends React.Component {
                     }
                     style={{
                       padding: 10,
-                      backgroundColor: "#eeb5ff",
-                      color: "#333",
+                      color: "#0C1B3D",
                       fontSize: 16,
-                      fontWeight: "600",
-                      marginTop: 10,
-                      marginRight: 5
+                      fontWeight: "900"
                     }}
                   >
                     Profile
@@ -240,23 +251,61 @@ export default class Matches extends React.Component {
                   bottom: 5,
                   left: 5,
                   flex: 1,
-                  justifyContent: "center",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                   alignItems: "flex-start",
                   width: "100%",
                   backgroundColor: "transparent"
                 }}
               >
-                <Text
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 36,
+                      fontWeight: "900",
+                      paddingTop: 10,
+                      color: "#fff"
+                    }}
+                  >
+                    {item.name}, {2020 - item.year}
+                  </Text>
+                  <Text style={{ color: "#fff" }}>
+                    Ho Chi Minh City, Vietnam
+                  </Text>
+                </View>
+                <TouchableOpacity
                   style={{
-                    fontSize: 36,
-                    fontWeight: "900",
-                    paddingTop: 10,
-                    color: "#fff"
+                    borderRadius: 50,
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    marginRight: 10,
+                    marginTop: 10,
+                    shadowColor: "rgb(200, 200, 200)",
+                    shadowOffset: { width: 2, height: 2 },
+                    shadowOpacity: 0.5,
+                    backgroundColor: "#fff"
                   }}
                 >
-                  {item.name}, {2020 - item.year}
-                </Text>
-                <Text style={{ color: "#fff" }}>Ho Chi Minh City, Vietnam</Text>
+                  <Text
+                    onPress={() =>
+                      this.props.navigation.navigate(ProfileScreen, {
+                        name: item.name,
+                        age: 2020 - item.year,
+                        avatar: item.uri
+                      })
+                    }
+                    style={{
+                      padding: 10,
+                      color: "#0C1B3D",
+                      fontSize: 16,
+                      fontWeight: "900"
+                    }}
+                  >
+                    Profile
+                  </Text>
+                </TouchableOpacity>
               </Animated.View>
             </Animated.View>
           );
@@ -311,7 +360,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "flex-start",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     backgroundColor: "#fff",
     paddingLeft: 15,
     paddingRight: 15,

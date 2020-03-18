@@ -8,9 +8,9 @@ export default class SwipeComponent extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.props.slogan}</Text>
-        <Text style={styles.sub}>Lorem ipsum dolor sit amet</Text>
         <Image source={this.props.swipeImageUrl} style={styles.image} />
+        <Text style={styles.text}>{this.props.slogan}</Text>
+        <Text style={styles.description}>{this.props.description}</Text>
       </View>
     );
   }
@@ -23,11 +23,12 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   text: {
-    fontSize: 36,
+    fontSize: 20,
     fontWeight: "800",
-    marginBottom: 5,
-    marginLeft: 30,
-    marginRight: 50,
+    marginTop: 16,
+    textAlign: "center",
+    // marginLeft: 30,
+    // marginRight: 50,
     color: "#0C1B3D"
   },
   sub: {
@@ -41,5 +42,12 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 250
+  },
+  description: {
+    textAlign: "center",
+    marginTop: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    color: "#9c9c9c"
   }
 });
