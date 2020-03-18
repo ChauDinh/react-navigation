@@ -124,8 +124,8 @@ export default class Explore extends React.Component {
                   navigation.navigate(ProfileScreen, {
                     name: item.name,
                     age: item.date,
-                    avatar: item.avatar,
-                    images: item.images
+                    avatar: item.avatar
+                    // images: item.images
                   })
                 }
               />
