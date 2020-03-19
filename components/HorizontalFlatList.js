@@ -70,6 +70,7 @@ export default class HorizontalFlatList extends React.Component {
             style={{
               backgroundColor: "#fff"
             }}
+            showsHorizontalScrollIndicator={false}
             horizontal={true}
             data={horizontalFlatListData}
             renderItem={({ item, index }) => {
@@ -93,6 +94,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    marginTop: Platform.OS === "ios" ? 34 : 0
+    marginTop: Platform.OS === "ios" ? 20 : 0
   }
 });
