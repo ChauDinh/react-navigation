@@ -83,7 +83,11 @@ class FlatlistItem extends React.Component {
 export default class Explore extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerStyle = {
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+      borderBottomWidth: 0,
+      shadowColor: "rgb(200, 200, 200)",
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.2
     };
     let headerTintColor = "#000";
     let headerBackTitle = "Back";
