@@ -1,16 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 import HorizontalFlatList from "../HorizontalFlatList";
+import Status from "../Status";
+import { statusData } from "../../data/statusData";
 
 export default class Chat extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let headerStyle = {
-      // backgroundColor: "#fff",
-      // borderBottomWidth: 0,
-      // shadowColor: "rgb(200, 200, 200)",
-      // shadowOffset: { width: 0, height: 1 },
-      // shadowOpacity: 0.2
       display: "none"
     };
 
@@ -19,8 +16,13 @@ export default class Chat extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Messages</Text>
-        <HorizontalFlatList />
+        <ScrollView>
+          <Text style={styles.text}>Messages</Text>
+          <HorizontalFlatList />
+          {statusData.map((item, index) => {
+            return <Status key={item.id} item={item} />;
+          })}
+        </ScrollView>
       </View>
     );
   }
@@ -35,8 +37,9 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   text: {
-    marginTop: 20,
+    marginTop: 30,
     marginLeft: 15,
+    marginBottom: 10,
     fontSize: 30,
     fontWeight: "700",
     color: "#0C1B3D"

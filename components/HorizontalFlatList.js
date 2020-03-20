@@ -22,26 +22,30 @@ class HorizontalFlatListItem extends React.Component {
           width: 90,
           borderRadius: 10,
           marginLeft: 4,
-          marginRight: 4,
-          shadowColor: "rgb(200, 200, 200)",
-          shadowOffset: { width: 0, height: 3 },
-          shadowOpacity: 0.2
+          marginRight: 4
         }}
       >
         <TouchableOpacity
           style={{
             position: "absolute",
-            bottom: -6,
+            width: "100%",
+            bottom: 0,
             backgroundColor: "#fff",
             zIndex: 1000,
             paddingTop: 3,
             paddingBottom: 3,
             paddingLeft: 5,
-            paddingRight: 5,
-            borderRadius: 10
+            paddingRight: 5
           }}
         >
-          <Text style={{ fontSize: 13, fontWeight: "700", color: "#545454" }}>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 13,
+              fontWeight: "700",
+              color: "#545454"
+            }}
+          >
             {this.props.item.name}
           </Text>
         </TouchableOpacity>
@@ -52,7 +56,7 @@ class HorizontalFlatListItem extends React.Component {
               width: 90,
               height: "100%",
               resizeMode: "cover",
-              borderRadius: 10
+              borderRadius: 5
             }}
           />
         </TouchableOpacity>
@@ -65,7 +69,15 @@ export default class HorizontalFlatList extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ height: 150 }}>
+        <View
+          style={{
+            height: 170,
+            padding: 10,
+            shadowColor: "rgb(200, 200, 200)",
+            shadowOffset: { width: 0, height: 3 },
+            shadowOpacity: 0.2
+          }}
+        >
           <FlatList
             style={{
               backgroundColor: "#fff"
@@ -94,6 +106,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    marginTop: Platform.OS === "ios" ? 20 : 0
+    marginTop: Platform.OS === "ios" ? 20 : 0,
+    marginBottom: 20
   }
 });
