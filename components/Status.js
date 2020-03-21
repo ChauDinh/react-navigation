@@ -34,7 +34,7 @@ export default class Status extends React.Component {
               }}
             />
             <Text style={{ fontSize: 16, fontWeight: "300" }}>
-              {this.props.item.creator}
+              {this.props.item.creator}{" "}
             </Text>
           </View>
           <Text style={{ color: "#545454" }}>
@@ -47,14 +47,16 @@ export default class Status extends React.Component {
           resizeMethod="auto"
         />
         <View style={styles.description}>
-          <Text>{this.props.item.tut}</Text>
+          <Text style={{ color: "#333", fontSize: 16 }}>
+            {this.props.item.tut}
+          </Text>
         </View>
         <View style={styles.comment}>
           <View style={{ flex: 1, flexDirection: "row" }}>
             <TouchableOpacity>
               <Image
                 source={require("../icons/matches.png")}
-                style={{ width: 20, height: 20, marginRight: 10 }}
+                style={{ width: 20, height: 20, marginRight: 20 }}
               />
             </TouchableOpacity>
             <TouchableOpacity>
@@ -68,7 +70,7 @@ export default class Status extends React.Component {
             <Text style={{ color: "#545454", marginRight: 10 }}>
               2.69k Comments
             </Text>
-            <Text style={{ color: "#545454" }}>2.7k Shares</Text>
+            <Text style={{ color: "#545454" }}>2.7k Likes</Text>
           </View>
         </View>
       </View>
@@ -103,5 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     justifyContent: "space-between"
+    // height: 50,
+    // width: "100%"
   }
 });

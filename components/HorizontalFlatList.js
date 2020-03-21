@@ -25,12 +25,23 @@ class HorizontalFlatListItem extends React.Component {
           marginRight: 4
         }}
       >
+        <TouchableOpacity>
+          <Image
+            source={this.props.item.uri}
+            style={{
+              width: 90,
+              height: 140,
+              resizeMode: "cover",
+              borderRadius: 5
+            }}
+          />
+        </TouchableOpacity>
         <TouchableOpacity
           style={{
             position: "absolute",
             width: "100%",
             bottom: 0,
-            backgroundColor: "#fff",
+            backgroundColor: "transparent",
             zIndex: 1000,
             paddingTop: 3,
             paddingBottom: 3,
@@ -38,26 +49,9 @@ class HorizontalFlatListItem extends React.Component {
             paddingRight: 5
           }}
         >
-          <Text
-            style={{
-              textAlign: "center",
-              fontSize: 13,
-              fontWeight: "700",
-              color: "#545454"
-            }}
-          >
-            {this.props.item.name}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
           <Image
-            source={this.props.item.uri}
-            style={{
-              width: 90,
-              height: "100%",
-              resizeMode: "cover",
-              borderRadius: 5
-            }}
+            source={this.props.item.avatar}
+            style={{ width: 30, height: 30, borderRadius: 30 / 2 }}
           />
         </TouchableOpacity>
       </View>
@@ -71,7 +65,7 @@ export default class HorizontalFlatList extends React.Component {
       <View style={styles.container}>
         <View
           style={{
-            height: 170,
+            height: 160,
             padding: 10,
             shadowColor: "rgb(200, 200, 200)",
             shadowOffset: { width: 0, height: 3 },
@@ -107,6 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     marginTop: Platform.OS === "ios" ? 20 : 0,
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundColor: "#fff"
   }
 });

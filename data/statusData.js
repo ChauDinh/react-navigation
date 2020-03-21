@@ -44,5 +44,13 @@ export const statusData = [
     time: date,
     uri: require("../images/messages/05.jpg"),
     tut: "Asian girls are the most cute thing that I've seen in my life! ❤️😍😄"
+  },
+  {
+    id: "6",
+    creator: "",
+    avatar: "",
+    time: "",
+    uri: "",
+    tut: ""
   }
 ];

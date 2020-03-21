@@ -1,9 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 
-import HorizontalFlatList from "../HorizontalFlatList";
-import Status from "../Status";
-import { statusData } from "../../data/statusData";
+import { TopTabNavigator } from "./TopTabNavigator";
 
 export default class Chat extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -15,15 +13,12 @@ export default class Chat extends React.Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <View>
           <Text style={styles.text}>Messages</Text>
-          <HorizontalFlatList />
-          {statusData.map((item, index) => {
-            return <Status key={item.id} item={item} />;
-          })}
-        </ScrollView>
-      </View>
+          <TopTabNavigator />
+        </View>
+      </SafeAreaView>
     );
   }
 }
@@ -34,14 +29,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     backgroundColor: "#fff",
-    paddingTop: 20
+    paddingTop: 20,
+    width: "100%",
+    height: "100%"
   },
   text: {
-    marginTop: 30,
-    marginLeft: 15,
-    marginBottom: 10,
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingBottom: 10,
     fontSize: 30,
     fontWeight: "700",
-    color: "#0C1B3D"
+    color: "#2CB9B0"
   }
 });

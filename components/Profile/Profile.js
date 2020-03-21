@@ -68,7 +68,7 @@ export default class Profile extends React.Component {
           </TouchableOpacity>
         </View>
         <Text style={styles.location}>
-          <Text style={{ color: "#00e500" }}>●</Text> Ho Chi Minh City, Vietnam
+          <Text style={{ color: "#00e500" }}>🏡</Text> Ho Chi Minh City, Vietnam
         </Text>
       </View>
     );

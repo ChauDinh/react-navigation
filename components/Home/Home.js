@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import Swiper from "react-native-swiper";
 
 import { ExploreScreen } from "../../screens";

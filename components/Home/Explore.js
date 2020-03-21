@@ -150,12 +150,12 @@ const styles = StyleSheet.create({
     paddingRight: 5
   },
   slogan: {
-    fontSize: 36,
-    fontWeight: "800",
+    fontSize: 30,
+    fontWeight: "700",
     marginBottom: 16,
     marginLeft: 10,
     marginRight: 50,
-    color: "#0C1B3D"
+    color: "#2CB9B0"
   },
   linearGradient: {
     flex: 1,

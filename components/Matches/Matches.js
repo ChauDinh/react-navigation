@@ -9,6 +9,7 @@ import {
   View,
   Image
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import { ProfileScreen } from "../../screens";
 import { mockDataForMatches } from "../../data/matchesFlatlistData";
@@ -102,20 +103,23 @@ export default class Matches extends React.Component {
                   position: "absolute",
                   top: 20,
                   left: 10,
-                  zIndex: 1000
+                  zIndex: 1000,
+                  borderRadius: 10
                 }}
               >
-                <Text
+                <View
                   style={{
-                    color: "#fff",
-                    fontSize: 24,
-                    fontWeight: "800",
                     padding: 10,
-                    backgroundColor: "green"
+                    backgroundColor: "#38EF7D",
+                    borderRadius: 50
                   }}
                 >
-                  LOVE
-                </Text>
+                  <Text
+                    style={{ color: "#fff", fontSize: 24, fontWeight: "800" }}
+                  >
+                    LOVE
+                  </Text>
+                </View>
               </Animated.View>
               <Animated.View
                 style={{
@@ -127,17 +131,23 @@ export default class Matches extends React.Component {
                   zIndex: 1000
                 }}
               >
-                <Text
+                <View
                   style={{
-                    color: "#fff",
-                    fontSize: 24,
-                    fontWeight: "800",
                     padding: 10,
-                    backgroundColor: "red"
+                    backgroundColor: "#f5426f",
+                    borderRadius: 50
                   }}
                 >
-                  NO
-                </Text>
+                  <Text
+                    style={{
+                      color: "#fff",
+                      fontSize: 24,
+                      fontWeight: "800"
+                    }}
+                  >
+                    NO
+                  </Text>
+                </View>
               </Animated.View>
 
               <Image
@@ -184,36 +194,48 @@ export default class Matches extends React.Component {
                 </View>
                 <TouchableOpacity
                   style={{
+                    width: 100,
+                    height: 60,
                     borderRadius: 50,
                     paddingTop: 5,
                     paddingBottom: 5,
                     paddingLeft: 10,
                     paddingRight: 10,
-                    marginRight: 10,
-                    marginTop: 10,
+                    marginRight: 5,
+                    marginTop: 5,
                     shadowColor: "rgb(200, 200, 200)",
                     shadowOffset: { width: 2, height: 2 },
                     shadowOpacity: 0.5,
-                    backgroundColor: "#fff"
+                    backgroundColor: "transparent"
                   }}
+                  onPress={() =>
+                    this.props.navigation.navigate(ProfileScreen, {
+                      name: item.name,
+                      age: 2020 - item.year,
+                      avatar: item.uri
+                    })
+                  }
                 >
-                  <Text
-                    onPress={() =>
-                      this.props.navigation.navigate(ProfileScreen, {
-                        name: item.name,
-                        age: 2020 - item.year,
-                        avatar: item.uri
-                      })
-                    }
+                  <LinearGradient
+                    colors={["#38EF7D", "#2CB9B0"]}
                     style={{
-                      padding: 10,
-                      color: "#0C1B3D",
-                      fontSize: 16,
-                      fontWeight: "900"
+                      flex: 1,
+                      justifyContent: "center",
+                      borderRadius: 50
                     }}
                   >
-                    Profile
-                  </Text>
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        padding: 10,
+                        color: "#fff",
+                        fontSize: 16,
+                        fontWeight: "900"
+                      }}
+                    >
+                      Profile
+                    </Text>
+                  </LinearGradient>
                 </TouchableOpacity>
               </Animated.View>
             </Animated.View>
@@ -275,36 +297,48 @@ export default class Matches extends React.Component {
                 </View>
                 <TouchableOpacity
                   style={{
+                    width: 100,
+                    height: 60,
                     borderRadius: 50,
                     paddingTop: 5,
                     paddingBottom: 5,
                     paddingLeft: 10,
                     paddingRight: 10,
-                    marginRight: 10,
-                    marginTop: 10,
+                    marginRight: 5,
+                    marginTop: 5,
                     shadowColor: "rgb(200, 200, 200)",
                     shadowOffset: { width: 2, height: 2 },
                     shadowOpacity: 0.5,
-                    backgroundColor: "#fff"
+                    backgroundColor: "transparent"
                   }}
+                  onPress={() =>
+                    this.props.navigation.navigate(ProfileScreen, {
+                      name: item.name,
+                      age: 2020 - item.year,
+                      avatar: item.uri
+                    })
+                  }
                 >
-                  <Text
-                    onPress={() =>
-                      this.props.navigation.navigate(ProfileScreen, {
-                        name: item.name,
-                        age: 2020 - item.year,
-                        avatar: item.uri
-                      })
-                    }
+                  <LinearGradient
+                    colors={["#38EF7D", "#2CB9B0"]}
                     style={{
-                      padding: 10,
-                      color: "#0C1B3D",
-                      fontSize: 16,
-                      fontWeight: "900"
+                      flex: 1,
+                      justifyContent: "center",
+                      borderRadius: 50
                     }}
                   >
-                    Profile
-                  </Text>
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        padding: 10,
+                        color: "#fff",
+                        fontSize: 16,
+                        fontWeight: "900"
+                      }}
+                    >
+                      Profile
+                    </Text>
+                  </LinearGradient>
                 </TouchableOpacity>
               </Animated.View>
             </Animated.View>

@@ -1,6 +1,9 @@
 import React from "react";
 import { AppRegistry, Image, TouchableOpacity } from "react-native";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import {
+  createStackNavigator,
+  createBottomTabNavigator
+} from "react-navigation";
 
 import Home from "./components/Home/Home";
 import Matches from "./components/Matches/Matches";
@@ -18,7 +21,7 @@ import {
   AccountScreen
 } from "./screens";
 
-export const HomeStack = StackNavigator({
+export const HomeStack = createStackNavigator({
   HomeScreen: {
     screen: Home
   },
@@ -30,7 +33,7 @@ export const HomeStack = StackNavigator({
   }
 });
 
-export const MatchesStack = StackNavigator({
+export const MatchesStack = createStackNavigator({
   MatchesScreen: {
     screen: Matches
   },
@@ -39,19 +42,19 @@ export const MatchesStack = StackNavigator({
   }
 });
 
-export const ChatStack = StackNavigator({
+export const ChatStack = createStackNavigator({
   ChatScreen: {
     screen: Chat
   }
 });
 
-export const MeStack = StackNavigator({
+export const MeStack = createStackNavigator({
   MeScreen: {
     screen: Me
   }
 });
 
-const App = TabNavigator(
+const App = createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack,
