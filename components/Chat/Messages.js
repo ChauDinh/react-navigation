@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -7,9 +7,9 @@ const SCREEN_HEIGHT = Dimensions.get("window").height;
 export default class Messages extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text>Hello from Messages!</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }

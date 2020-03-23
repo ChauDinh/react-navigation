@@ -1,16 +1,19 @@
 import React from "react";
-import { AppRegistry, Image, TouchableOpacity } from "react-native";
+import { AppRegistry, Image, Text } from "react-native";
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator
 } from "react-navigation";
 
 import Home from "./components/Home/Home";
 import Matches from "./components/Matches/Matches";
-import Chat from "./components/Chat/Chat";
 import Me from "./components/Me/Me";
 import Explore from "./components/Home/Explore";
 import Profile from "./components/Profile/Profile";
+import News from "./components/Chat/News";
+import Messages from "./components/Chat/Messages";
+
 import {
   HomeScreen,
   ExploreScreen,
@@ -20,6 +23,35 @@ import {
   MeScreen,
   AccountScreen
 } from "./screens";
+
+const routeConfigs = {
+  News: {
+    screen: News
+  },
+  Messages: {
+    screen: Messages
+  }
+};
+
+const tabNavigationConfigs = {
+  initialRouteName: "News",
+  order: ["News", "Messages"],
+  animationEnabled: false,
+  tabBarPosition: "top",
+  tabBarOptions: {
+    style: {
+      backgroundColor: "#2CB9B0"
+    },
+    labelStyle: {
+      color: "#fff",
+      fontWeight: "700"
+    },
+    indicatorStyle: {
+      height: 5,
+      backgroundColor: "#fff"
+    }
+  }
+};
 
 export const HomeStack = createStackNavigator({
   HomeScreen: {
@@ -42,11 +74,31 @@ export const MatchesStack = createStackNavigator({
   }
 });
 
-export const ChatStack = createStackNavigator({
-  ChatScreen: {
-    screen: Chat
+const ChatTopNavigator = createMaterialTopTabNavigator(
+  routeConfigs,
+  tabNavigationConfigs
+);
+
+export const ChatStack = createStackNavigator(
+  {
+    ChatTopNavigator: ChatTopNavigator
+  },
+  {
+    navigationOptions: {
+      headerStyle: {
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderBottomWidth: 0,
+        backgroundColor: "#2CB9B0"
+      },
+      headerLeft: (
+        <Text style={{ fontSize: 30, fontWeight: "700", color: "#fff" }}>
+          All Chat
+        </Text>
+      )
+    }
   }
-});
+);
 
 export const MeStack = createStackNavigator({
   MeScreen: {

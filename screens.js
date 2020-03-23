@@ -3,6 +3,7 @@ const HomeScreen = "HomeScreen";
 const MatchesScreen = "GirlsScreen";
 const ChatScreen = "ChatScreen";
 const MeScreen = "MeScreen";
+const MessageTopNavigatorScreen = "MessageTopNavigatorScreen";
 
 // Stack screens
 const ExploreScreen = "ExploreScreen";
@@ -16,5 +17,6 @@ export {
   ProfileScreen,
   ChatScreen,
   MeScreen,
-  AccountScreen
+  AccountScreen,
+  MessageTopNavigatorScreen
 };

@@ -90,8 +90,11 @@ export default class Matches extends React.Component {
               style={[
                 this.rotateAndTranslate,
                 {
-                  height: Math.floor(SCREEN_HEIGHT - 160),
-                  width: SCREEN_WIDTH - 30,
+                  // height: SCREEN_HEIGHT - 200,
+                  // width: SCREEN_WIDTH - 30,
+                  height: SCREEN_HEIGHT - 180,
+                  width: SCREEN_WIDTH,
+                  flex: 1,
                   position: "absolute"
                 }
               ]}
@@ -194,7 +197,7 @@ export default class Matches extends React.Component {
                 </View>
                 <TouchableOpacity
                   style={{
-                    width: 100,
+                    // width: 100,
                     height: 60,
                     borderRadius: 50,
                     paddingTop: 5,
@@ -227,7 +230,10 @@ export default class Matches extends React.Component {
                     <Text
                       style={{
                         textAlign: "center",
-                        padding: 10,
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        paddingLeft: 20,
+                        paddingRight: 20,
                         color: "#fff",
                         fontSize: 16,
                         fontWeight: "900"
@@ -248,8 +254,8 @@ export default class Matches extends React.Component {
                 {
                   opacity: this.nextCardOpacity,
                   transform: [{ scale: this.nextCardScale }],
-                  height: Math.floor(SCREEN_HEIGHT - 160),
-                  width: SCREEN_WIDTH - 30,
+                  height: SCREEN_HEIGHT - 180,
+                  width: SCREEN_WIDTH,
                   position: "absolute"
                 }
               ]}
@@ -297,7 +303,7 @@ export default class Matches extends React.Component {
                 </View>
                 <TouchableOpacity
                   style={{
-                    width: 100,
+                    // width: 100,
                     height: 60,
                     borderRadius: 50,
                     paddingTop: 5,
@@ -330,7 +336,10 @@ export default class Matches extends React.Component {
                     <Text
                       style={{
                         textAlign: "center",
-                        padding: 10,
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        paddingLeft: 20,
+                        paddingRight: 20,
                         color: "#fff",
                         fontSize: 16,
                         fontWeight: "900"
@@ -384,7 +393,15 @@ export default class Matches extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 1 }}>{this.renderUSer()}</View>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "flex-start",
+            justifyContent: "center"
+          }}
+        >
+          {this.renderUSer()}
+        </View>
       </View>
     );
   }
@@ -395,14 +412,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: "#fff",
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 20
+    backgroundColor: "#fff"
+    // paddingLeft: 15,
+    // paddingRight: 15,
+    // paddingTop: 20
   },
   logo: {
     height: 40,
-    width: 110
+    width: 120
   },
   text: {
     fontSize: 36,

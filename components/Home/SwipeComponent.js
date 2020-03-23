@@ -28,25 +28,18 @@ const styles = StyleSheet.create({
     marginTop: 16,
     textAlign: "center",
 
-    color: "#19191B"
-  },
-  sub: {
-    fontSize: 18,
-    fontWeight: "300",
-    color: "#222",
-    marginLeft: 30,
-    marginRight: 30,
-    marginBottom: 16
+    color: "#2CB9B0"
   },
   image: {
     width: "100%",
     height: 250
   },
   description: {
+    fontSize: 16,
     textAlign: "center",
     marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
-    color: "#9c9c9c"
+    color: "#69807e"
   }
 });

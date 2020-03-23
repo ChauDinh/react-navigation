@@ -1,5 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  MaskedViewIOS
+} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 export default class Profile extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -48,7 +56,7 @@ export default class Profile extends React.Component {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              backgroundColor: "#fff",
+              backgroundColor: "transparent",
               borderRadius: 50,
               paddingTop: 5,
               paddingBottom: 5,
@@ -60,11 +68,24 @@ export default class Profile extends React.Component {
               marginTop: 5
             }}
           >
-            <Image
-              source={require("../../icons/matches.png")}
-              style={{ width: 26, height: 26, marginTop: 8, marginRight: 8 }}
-            />
-            <Text style={{ fontSize: 16 }}>69</Text>
+            <LinearGradient
+              colors={["#38EF7D", "#2CB9B0"]}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                borderRadius: 50,
+                paddingTop: 5,
+                paddingBottom: 7,
+                paddingLeft: 16,
+                paddingRight: 16
+              }}
+            >
+              <Image
+                source={require("../../icons/matches.png")}
+                style={{ width: 26, height: 26, marginTop: 8, marginRight: 8 }}
+              />
+              <Text style={{ fontSize: 16 }}>69</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
         <Text style={styles.location}>

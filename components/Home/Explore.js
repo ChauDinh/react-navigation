@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     paddingRight: 5
   },
   slogan: {
-    fontSize: 30,
+    fontSize: 46.69,
     fontWeight: "700",
     marginBottom: 16,
     marginLeft: 10,

@@ -82,7 +82,7 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   logo: {
     height: 40,
-    width: 110
+    width: 120
   },
   container: {
     backgroundColor: "#fff",
