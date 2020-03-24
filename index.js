@@ -92,7 +92,7 @@ export const ChatStack = createStackNavigator(
         backgroundColor: "#2CB9B0"
       },
       headerLeft: (
-        <Text style={{ fontSize: 30, fontWeight: "700", color: "#fff" }}>
+        <Text style={{ fontSize: 30, fontWeight: "900", color: "#fff" }}>
           All Chat
         </Text>
       )

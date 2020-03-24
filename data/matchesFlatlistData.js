@@ -54,3 +54,46 @@ export const mockDataForMatches = [
     year: 2001
   }
 ];
+
+export const mockLocationData = [
+  {
+    id: "1",
+    name: "Ho Chi Minh City, Vietnam"
+  },
+  {
+    id: "2",
+    name: "Hanoi, Vietnam"
+  },
+  {
+    id: "3",
+    name: "Danang, Vietnam"
+  },
+  {
+    id: "4",
+    name: "New York, United State"
+  },
+  {
+    id: "5",
+    name: "California, United State"
+  },
+  {
+    id: "6",
+    name: "Beijing, China"
+  },
+  {
+    id: "7",
+    name: "Wuhan, China"
+  },
+  {
+    id: "8",
+    name: "HongKong"
+  },
+  {
+    id: "9",
+    name: "Tokyo, Japan"
+  },
+  {
+    id: "10",
+    name: "Kyoto, Japan"
+  }
+];

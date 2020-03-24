@@ -71,7 +71,8 @@ class FlatlistItem extends React.Component {
                 color: "#fff"
               }}
             >
-              <Text style={{ color: "#00e500" }}>●</Text> {this.props.item.name}
+              <Text style={{ color: "#2CB9B0", fontSize: 10 }}>●</Text>{" "}
+              {this.props.item.name}
             </Text>
           </LinearGradient>
         </View>
@@ -112,11 +113,7 @@ export default class Explore extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          ListHeaderComponent={
-            <View>
-              <Text style={styles.slogan}>Explore</Text>
-            </View>
-          }
+          ListHeaderComponent={() => <Text>This is explore header</Text>}
           numColumns={2}
           data={exploreFlatlistData}
           renderItem={({ item, index }) => {
@@ -151,7 +148,7 @@ const styles = StyleSheet.create({
   },
   slogan: {
     fontSize: 46.69,
-    fontWeight: "700",
+    fontWeight: "900",
     marginBottom: 16,
     marginLeft: 10,
     marginRight: 50,

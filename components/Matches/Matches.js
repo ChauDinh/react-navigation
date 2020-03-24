@@ -9,8 +9,8 @@ import {
   View,
   Image
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 
+import Categories from "./Categories";
 import { ProfileScreen } from "../../screens";
 import { mockDataForMatches } from "../../data/matchesFlatlistData";
 
@@ -61,20 +61,21 @@ export default class Matches extends React.Component {
   }
   static navigationOptions = ({ navigation }) => {
     let headerStyle = {
-      backgroundColor: "#fff",
-      borderBottomWidth: 0,
       shadowColor: "rgb(200, 200, 200)",
       shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.2
+      shadowOpacity: 0.2,
+      paddingLeft: 15,
+      paddingRight: 15,
+      borderBottomWidth: 0,
+      backgroundColor: "#2CB9B0"
     };
-    let headerTitle = (
-      <Image
-        source={require("../../icons/title.png")}
-        style={styles.logo}
-      ></Image>
+    let headerLeft = (
+      <Text style={{ fontSize: 30, fontWeight: "900", color: "#fff" }}>
+        Matches
+      </Text>
     );
 
-    return { headerStyle, headerTitle };
+    return { headerStyle, headerLeft };
   };
 
   renderUSer = () => {
@@ -92,10 +93,18 @@ export default class Matches extends React.Component {
                 {
                   // height: SCREEN_HEIGHT - 200,
                   // width: SCREEN_WIDTH - 30,
-                  height: SCREEN_HEIGHT - 180,
+                  height: SCREEN_HEIGHT / 1.5,
                   width: SCREEN_WIDTH,
+                  paddingLeft: 15,
+                  paddingRight: 15,
+                  paddingTop: 10,
+                  paddingBottom: 10,
                   flex: 1,
-                  position: "absolute"
+                  position: "absolute",
+                  backgroundColor: "#fff",
+                  shadowColor: "rgb(200, 200, 200)",
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.2
                 }
               ]}
             >
@@ -105,16 +114,19 @@ export default class Matches extends React.Component {
                   transform: [{ rotate: "-30deg" }],
                   position: "absolute",
                   top: 20,
-                  left: 10,
+                  left: 24,
                   zIndex: 1000,
                   borderRadius: 10
                 }}
               >
                 <View
                   style={{
-                    padding: 10,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                    paddingRight: 16,
+                    paddingLeft: 16,
                     backgroundColor: "#38EF7D",
-                    borderRadius: 50
+                    borderRadius: 10
                   }}
                 >
                   <Text
@@ -130,15 +142,18 @@ export default class Matches extends React.Component {
                   transform: [{ rotate: "30deg" }],
                   position: "absolute",
                   top: 20,
-                  right: 10,
+                  right: 24,
                   zIndex: 1000
                 }}
               >
                 <View
                   style={{
-                    padding: 10,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                    paddingRight: 16,
+                    paddingLeft: 16,
                     backgroundColor: "#f5426f",
-                    borderRadius: 50
+                    borderRadius: 10
                   }}
                 >
                   <Text
@@ -157,59 +172,35 @@ export default class Matches extends React.Component {
                 source={item.uri}
                 style={{
                   flex: 1,
-                  height: null,
-                  width: null,
+                  height: "100%",
+                  width: "100%",
                   resizeMode: "cover",
-                  borderRadius: 2,
-                  shadowColor: "rgb(0, 0, 0)",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.2
+                  borderRadius: 10
                 }}
               />
               <Animated.View
                 style={{
                   position: "absolute",
-                  bottom: 5,
-                  left: 5,
-                  right: 5,
-                  flex: 1,
+                  bottom: -20,
+                  left: 18,
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  alignItems: "center",
                   width: "100%",
                   backgroundColor: "transparent"
                 }}
               >
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 36,
-                      fontWeight: "900",
-                      paddingTop: 10,
-                      color: "#fff"
-                    }}
-                  >
-                    {item.name}, {2020 - item.year}
-                  </Text>
-                  <Text style={{ color: "#fff" }}>
-                    Ho Chi Minh City, Vietnam
-                  </Text>
-                </View>
                 <TouchableOpacity
                   style={{
-                    // width: 100,
-                    height: 60,
+                    width: 230,
                     borderRadius: 50,
                     paddingTop: 5,
                     paddingBottom: 5,
                     paddingLeft: 10,
                     paddingRight: 10,
                     marginRight: 5,
-                    marginTop: 5,
-                    shadowColor: "rgb(200, 200, 200)",
-                    shadowOffset: { width: 2, height: 2 },
-                    shadowOpacity: 0.5,
-                    backgroundColor: "transparent"
+                    marginTop: 10,
+                    backgroundColor: "#2CB9B0"
                   }}
                   onPress={() =>
                     this.props.navigation.navigate(ProfileScreen, {
@@ -219,29 +210,20 @@ export default class Matches extends React.Component {
                     })
                   }
                 >
-                  <LinearGradient
-                    colors={["#38EF7D", "#2CB9B0"]}
+                  <Text
                     style={{
-                      flex: 1,
-                      justifyContent: "center",
-                      borderRadius: 50
+                      textAlign: "center",
+                      paddingTop: 5,
+                      paddingBottom: 5,
+                      paddingLeft: 20,
+                      paddingRight: 20,
+                      color: "#fff",
+                      fontSize: 23,
+                      fontWeight: "700"
                     }}
                   >
-                    <Text
-                      style={{
-                        textAlign: "center",
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        color: "#fff",
-                        fontSize: 16,
-                        fontWeight: "900"
-                      }}
-                    >
-                      Profile
-                    </Text>
-                  </LinearGradient>
+                    Profile
+                  </Text>
                 </TouchableOpacity>
               </Animated.View>
             </Animated.View>
@@ -254,9 +236,16 @@ export default class Matches extends React.Component {
                 {
                   opacity: this.nextCardOpacity,
                   transform: [{ scale: this.nextCardScale }],
-                  height: SCREEN_HEIGHT - 180,
+                  height: SCREEN_HEIGHT / 1.5,
                   width: SCREEN_WIDTH,
-                  position: "absolute"
+                  paddingLeft: 15,
+                  paddingRight: 15,
+                  paddingBottom: 10,
+                  paddingTop: 10,
+                  position: "absolute",
+                  shadowColor: "rgb(200, 200, 200)",
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.2
                 }
               ]}
             >
@@ -264,58 +253,35 @@ export default class Matches extends React.Component {
                 source={item.uri}
                 style={{
                   flex: 1,
-                  height: null,
-                  width: null,
+                  height: "100%",
+                  width: "100%",
                   resizeMode: "cover",
-                  borderRadius: 2,
-                  shadowColor: "rgb(200, 200, 200)",
-                  shadowOffset: { width: 0, height: 1 },
-                  shadowOpacity: 0.2
+                  borderRadius: 10
                 }}
               />
               <Animated.View
                 style={{
                   position: "absolute",
-                  bottom: 5,
-                  left: 5,
-                  flex: 1,
+                  bottom: -20,
+                  left: 18,
                   flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  alignItems: "center",
                   width: "100%",
                   backgroundColor: "transparent"
                 }}
               >
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 36,
-                      fontWeight: "900",
-                      paddingTop: 10,
-                      color: "#fff"
-                    }}
-                  >
-                    {item.name}, {2020 - item.year}
-                  </Text>
-                  <Text style={{ color: "#fff" }}>
-                    Ho Chi Minh City, Vietnam
-                  </Text>
-                </View>
                 <TouchableOpacity
                   style={{
-                    // width: 100,
-                    height: 60,
+                    width: 230,
                     borderRadius: 50,
                     paddingTop: 5,
                     paddingBottom: 5,
                     paddingLeft: 10,
                     paddingRight: 10,
                     marginRight: 5,
-                    marginTop: 5,
-                    shadowColor: "rgb(200, 200, 200)",
-                    shadowOffset: { width: 2, height: 2 },
-                    shadowOpacity: 0.5,
-                    backgroundColor: "transparent"
+                    marginTop: 10,
+                    backgroundColor: "#2CB9B0"
                   }}
                   onPress={() =>
                     this.props.navigation.navigate(ProfileScreen, {
@@ -325,29 +291,20 @@ export default class Matches extends React.Component {
                     })
                   }
                 >
-                  <LinearGradient
-                    colors={["#38EF7D", "#2CB9B0"]}
+                  <Text
                     style={{
-                      flex: 1,
-                      justifyContent: "center",
-                      borderRadius: 50
+                      textAlign: "center",
+                      paddingTop: 5,
+                      paddingBottom: 5,
+                      paddingLeft: 20,
+                      paddingRight: 20,
+                      color: "#fff",
+                      fontSize: 23,
+                      fontWeight: "700"
                     }}
                   >
-                    <Text
-                      style={{
-                        textAlign: "center",
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                        paddingLeft: 20,
-                        paddingRight: 20,
-                        color: "#fff",
-                        fontSize: 16,
-                        fontWeight: "900"
-                      }}
-                    >
-                      Profile
-                    </Text>
-                  </LinearGradient>
+                    Profile
+                  </Text>
                 </TouchableOpacity>
               </Animated.View>
             </Animated.View>
@@ -393,6 +350,7 @@ export default class Matches extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Categories />
         <View
           style={{
             flex: 1,
@@ -411,28 +369,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "flex-start",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     backgroundColor: "#fff"
-    // paddingLeft: 15,
-    // paddingRight: 15,
-    // paddingTop: 20
-  },
-  logo: {
-    height: 40,
-    width: 120
   },
   text: {
     fontSize: 36,
     fontWeight: "900",
-    color: "#0C1B3D",
-    marginBottom: 10
-  },
-  card: {
-    flex: 1,
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: "#E8E8E8",
-    justifyContent: "center",
-    backgroundColor: "white"
+    color: "#2CB9B0",
+    marginTop: 10,
+    marginBottom: 20,
+    marginLeft: 15
   }
 });
