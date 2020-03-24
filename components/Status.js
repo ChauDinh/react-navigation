@@ -27,13 +27,13 @@ export default class Status extends React.Component {
             <Image
               source={this.props.item.avatar}
               style={{
-                width: 50,
-                height: 50,
+                width: 36,
+                height: 36,
                 marginRight: 10,
-                borderRadius: 50 / 2
+                borderRadius: 36 / 2
               }}
             />
-            <Text style={{ fontSize: 16, fontWeight: "300" }}>
+            <Text style={{ fontWeight: "700" }}>
               {this.props.item.creator}{" "}
             </Text>
           </View>
@@ -43,7 +43,13 @@ export default class Status extends React.Component {
         </View>
         <Image
           source={this.props.item.uri}
-          style={{ width: SCREEN_WIDTH, height: imgHeight * ratio }}
+          style={{
+            width: SCREEN_WIDTH - 20,
+            height: imgHeight * ratio,
+            marginLeft: 10,
+            marginRight: 10,
+            borderRadius: 10
+          }}
           resizeMethod="auto"
         />
         <View style={styles.description}>

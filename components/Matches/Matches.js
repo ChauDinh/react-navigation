@@ -93,7 +93,7 @@ export default class Matches extends React.Component {
                 {
                   // height: SCREEN_HEIGHT - 200,
                   // width: SCREEN_WIDTH - 30,
-                  height: SCREEN_HEIGHT / 1.5,
+                  height: SCREEN_HEIGHT / 1.696969,
                   width: SCREEN_WIDTH,
                   paddingLeft: 15,
                   paddingRight: 15,
@@ -236,7 +236,7 @@ export default class Matches extends React.Component {
                 {
                   opacity: this.nextCardOpacity,
                   transform: [{ scale: this.nextCardScale }],
-                  height: SCREEN_HEIGHT / 1.5,
+                  height: SCREEN_HEIGHT / 1.696969,
                   width: SCREEN_WIDTH,
                   paddingLeft: 15,
                   paddingRight: 15,

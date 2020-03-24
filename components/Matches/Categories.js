@@ -40,8 +40,8 @@ export default class Categories extends React.Component {
 
 const styles = StyleSheet.create({
   flatList: {
-    height: 53,
-    paddingTop: 5,
+    height: 65,
+    paddingTop: 15,
     paddingBottom: 8,
     paddingLeft: 5,
     paddingRight: 5,

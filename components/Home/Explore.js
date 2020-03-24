@@ -6,7 +6,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Keyboard
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -120,6 +121,28 @@ export default class Explore extends React.Component {
       headerLeft
     };
   };
+
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        this.setState({ text: this.state.text });
+      }
+    );
+
+    this.keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        this.setState({ text: this.state.text });
+      }
+    );
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -129,7 +152,7 @@ export default class Explore extends React.Component {
             backgroundColor: "#2CB9B0",
             paddingLeft: 15,
             paddingRight: 15,
-            paddingTop: 5,
+            paddingTop: 15,
             paddingBottom: 10
           }}
         >
@@ -141,6 +164,12 @@ export default class Explore extends React.Component {
               borderRadius: 14.7868,
               paddingLeft: 10
             }}
+            editable={true}
+            returnKeyType="done"
+            onSubmitEditing={Keyboard.dismiss}
+            keyboardType="name-phone-pad"
+            editable={true}
+            returnKeyType="done"
             onChangeText={text => this.setState({ text })}
             value={this.state.text}
             placeholder="Enter girl's name"
