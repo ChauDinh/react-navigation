@@ -23,7 +23,8 @@ export default class Matches extends React.Component {
 
     this.position = new Animated.ValueXY();
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+      currentLocation: "Ho Chi Minh city, Vietnam"
     };
     this.rotate = this.position.x.interpolate({
       inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
@@ -350,7 +351,9 @@ export default class Matches extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Categories />
+        <Categories
+          onPress={() => this.setState({ currentLocation: "Something" })}
+        />
         <View
           style={{
             flex: 1,

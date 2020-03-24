@@ -11,6 +11,9 @@ import {
 import { mockLocationData } from "../../data/matchesFlatlistData";
 
 export default class Categories extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <View style={styles.flatList}>
@@ -20,7 +23,10 @@ export default class Categories extends React.Component {
           data={mockLocationData}
           renderItem={({ item, idx }) => {
             return (
-              <TouchableOpacity style={styles.card}>
+              <TouchableOpacity
+                onPress={this.props.onPress}
+                style={styles.card}
+              >
                 <Text style={{ color: "#000", fontWeight: "700" }}>
                   <Image
                     source={require("../../icons/placeholder.png")}
