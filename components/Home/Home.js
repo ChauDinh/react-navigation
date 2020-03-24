@@ -31,7 +31,7 @@ export default class Home extends React.Component {
       />
     );
     let headerTintColor = "#000";
-    let headerBackTitle = "Back";
+    let headerBackTitle = null;
     let footerStyle = {
       backgroundColor: "#fff"
     };

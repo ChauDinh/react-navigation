@@ -1,35 +1,16 @@
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  MaskedViewIOS
-} from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 export default class Profile extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params = {} } = navigation.state;
     let headerStyle = {
-      backgroundColor: "#fff"
+      backgroundColor: "#2CB9B0"
     };
-    let headerTintColor = "#000";
+    let headerTintColor = "#fff";
     let headerTitle = params.name;
-    let headerRight = (
-      <Image
-        source={require("../../icons/menu.png")}
-        style={{
-          height: 20,
-          width: 20,
-          margin: 10,
-          transform: [{ rotate: "90deg" }]
-        }}
-      />
-    );
 
-    return { headerStyle, headerTintColor, headerTitle, headerRight };
+    return { headerStyle, headerTintColor, headerTitle };
   };
   render() {
     const dataFromExploreScreen = this.props.navigation.state.params;

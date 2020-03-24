@@ -5,25 +5,23 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import { ProfileScreen } from "../../screens";
+import { ProfileScreen, HomeScreen } from "../../screens";
 import { exploreFlatlistData } from "../../data/exploreFlatlistData";
 
 class FlatlistItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <TouchableOpacity
         style={{
           flex: 1 / 2,
           backgroundColor: "#FFF",
-          marginLeft: 10,
-          marginRight: 10,
+          marginLeft: 15,
+          marginRight: 15,
           marginTop: 10,
           marginBottom: 10,
           paddingBottom: 10,
@@ -32,7 +30,8 @@ class FlatlistItem extends React.Component {
           shadowColor: "rgb(200, 200, 200)",
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.5,
-          height: 220
+          height: 220,
+          borderRadius: 10
         }}
         onPress={this.props.onPress}
       >
@@ -40,7 +39,8 @@ class FlatlistItem extends React.Component {
           source={this.props.item.avatar}
           style={{
             width: "100%",
-            height: 220
+            height: 220,
+            borderRadius: 10
           }}
         />
         <View
@@ -82,38 +82,72 @@ class FlatlistItem extends React.Component {
 }
 
 export default class Explore extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ""
+    };
+  }
   static navigationOptions = ({ navigation }) => {
     let headerStyle = {
-      backgroundColor: "#fff",
+      backgroundColor: "#2CB9B0",
       borderBottomWidth: 0,
       shadowColor: "rgb(200, 200, 200)",
       shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.2
+      shadowOpacity: 0.2,
+      paddingLeft: 15
     };
-    let headerTintColor = "#000";
+    let headerTintColor = "#fff";
     let headerBackTitle = "Back";
-    let headerTitle = "Explore";
-    let headerRight = (
-      <Image
-        source={require("../../icons/search.png")}
-        style={{ width: 26, height: 26, margin: 20 }}
-      />
+    let headerLeft = (
+      <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+        <TouchableOpacity onPress={() => navigation.navigate(HomeScreen)}>
+          <Image
+            source={require("../../icons/back.png")}
+            style={{ width: 16, height: 16, marginRight: 10 }}
+          />
+        </TouchableOpacity>
+        <Text style={{ fontSize: 30, fontWeight: "900", color: "#fff" }}>
+          Explore
+        </Text>
+      </View>
     );
 
     return {
       headerStyle,
       headerTintColor,
       headerBackTitle,
-      headerTitle,
-      headerRight
+      headerLeft
     };
   };
   render() {
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
+        <View
+          style={{
+            backgroundColor: "#2CB9B0",
+            paddingLeft: 15,
+            paddingRight: 15,
+            paddingTop: 5,
+            paddingBottom: 10
+          }}
+        >
+          <TextInput
+            style={{
+              height: 40,
+              borderWidth: 0,
+              backgroundColor: "#fff",
+              borderRadius: 14.7868,
+              paddingLeft: 10
+            }}
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
+            placeholder="Enter girl's name"
+            autoCompleteType={false}
+          />
+        </View>
         <FlatList
-          ListHeaderComponent={() => <Text>This is explore header</Text>}
           numColumns={2}
           data={exploreFlatlistData}
           renderItem={({ item, index }) => {
@@ -141,10 +175,7 @@ export default class Explore extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    flex: 1,
-    paddingTop: 20,
-    paddingLeft: 5,
-    paddingRight: 5
+    flex: 1
   },
   slogan: {
     fontSize: 46.69,
@@ -157,6 +188,7 @@ const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
     width: "100%",
-    padding: 5
+    padding: 5,
+    borderRadius: 10
   }
 });
